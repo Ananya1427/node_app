@@ -7,7 +7,7 @@ const { readdirSync } = require("fs");
 
 const app = express();
 
-mongoose.connect("mongodb+srv://bojjaananya20:SGJSQYSVp5MsQJdE@cluster0.e5axad9.mongodb.net/", {})
+mongoose.connect("mongodb+srv://bojjaananya20:sFvyjU3gCeB0yjWw@cluster0.e5axad9.mongodb.net/", {})
     .then(() => console.log("DB Connected"))
     .catch((error) => console.log(error));
 
