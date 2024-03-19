@@ -10,7 +10,7 @@ exports.authCheck = async (req, res, next) => {
         next();
     } catch (error) {
         res.status(401).json({
-            err: 'Invalid or expired token',
+            message: 'Invalid or expired token',
         });
     }
 }
@@ -23,11 +23,11 @@ exports.adminCheck = async (req, res, next) => {
             next();
         }
         else {
-            res.json('You are not allowed to this operation')
+            res.json({ message: 'You are not allowed to this operation' });
         }
     } catch (error) {
         res.status(401).json({
-            err: 'Invalid or expired token',
+            message: 'Invalid or expired token',
         });
     }
 }
