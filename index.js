@@ -16,7 +16,7 @@ app.use(morgan('dev'));
 app.use(bodyParser.json({ limit: '2mb' }));
 app.use(cors());
 
-readdirSync('./routes').map((r) => app.use('/api', require('./routes/' + r)));
+readdirSync('./controllers').map((r) => app.use('/api', require('./controllers/' + r)));
 
 const PORT = process.env.EXPRESS_APP_PORT_NUMBER || 8000;
 
