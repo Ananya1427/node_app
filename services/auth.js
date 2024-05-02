@@ -209,9 +209,9 @@ exports.createOrUpdateCuisine = async (req, res) => {
         let existingCreatedUser = await cuisine.findOne({ email });
         // newOrExistingProduct(req.body.productDetails);
         if (existingCreatedUser) {
-            let existingProduct = existingCreatedUser.products.find(product => product.title == title);
+            let existingProduct = existingCreatedUser.products.find(product => product._id == id);
             if (existingProduct) {
-                let updatedProduct = await cuisine.updateOne({ email, 'products.title': title }, { $set: { 'products.$.title': title, 'products.$.slug': title.toLowerCase(), 'products.$.description': description, 'products.$.price': price, 'products.$.category': category, 'products.$.quantity': quantity, 'products.$.images': images } });
+                let updatedProduct = await cuisine.updateOne({ email, 'products._id': id }, { $set: { 'products.$.title': title, 'products.$.slug': title.toLowerCase(), 'products.$.description': description, 'products.$.price': price, 'products.$.category': category, 'products.$.quantity': quantity, 'products.$.images': images } });
                 if (updatedProduct) {
                     let userProd = await cuisine.findOne({ email });
                     let products = userProd && userProd.products;
